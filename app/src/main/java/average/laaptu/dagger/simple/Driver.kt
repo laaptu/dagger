@@ -2,10 +2,9 @@ package average.laaptu.dagger.simple
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import javax.inject.Inject
 import javax.inject.Scope
 
-class ApiService @Inject constructor() {
+class ApiService {
     fun fetchSomeData(): String {
         println("Fetching data from web")
         return "Server Says Hello"
@@ -17,11 +16,10 @@ class ApiService @Inject constructor() {
 @Retention(AnnotationRetention.RUNTIME)
 annotation class PerActivity
 
-
 @Module
-abstract class ActivityBindingModule {
-
-    @ContributesAndroidInjector
-    abstract fun bindSimpleActivity(): SimpleActivity
+class SimpleActivityModule {
+    @PerActivity
+    fun getApiService(): ApiService = ApiService()
 }
+
 
