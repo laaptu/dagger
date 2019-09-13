@@ -10,17 +10,17 @@ import javax.inject.Inject
 class SimpleActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var apiService: ApiService
+    lateinit var activeService: ActiveService
 
     @Inject
-    lateinit var apiService1: ApiService
+    lateinit var activeService1: ActiveService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         setContentView(R.layout.activity_simple)
-        txtInfo.text = apiService.fetchSomeData()
-        println(apiService)
-        println(apiService1)
+        txtInfo.text = activeService.fetchSomeData()
+        println(activeService)
+        println(activeService1)
     }
 }

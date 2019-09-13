@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Scope
 
-class ApiService {
+class ActiveService {
     fun fetchSomeData(): String {
         println("Fetching data from web")
         return "Server Says Hello"
@@ -20,7 +20,7 @@ annotation class PerActivity
 class SimpleModule {
     @PerActivity
     @Provides
-    fun getApiService(): ApiService = ApiService()
+    fun getActiveService(): ActiveService = ActiveService()
 }
 
 
