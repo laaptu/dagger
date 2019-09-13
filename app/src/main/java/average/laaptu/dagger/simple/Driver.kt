@@ -1,7 +1,7 @@
 package average.laaptu.dagger.simple
 
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import dagger.Provides
 import javax.inject.Scope
 
 class ApiService {
@@ -17,8 +17,9 @@ class ApiService {
 annotation class PerActivity
 
 @Module
-class SimpleActivityModule {
+class SimpleModule {
     @PerActivity
+    @Provides
     fun getApiService(): ApiService = ApiService()
 }
 
