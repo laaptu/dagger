@@ -15,6 +15,15 @@ class SimpleActivity : AppCompatActivity() {
     @Inject
     lateinit var activeService1: ActiveService
 
+
+    @Inject
+    lateinit var appDb: AppDb
+    @Inject
+    lateinit var appDb1: AppDb
+
+    @Inject
+    lateinit var appService: AppService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
@@ -22,5 +31,10 @@ class SimpleActivity : AppCompatActivity() {
         txtInfo.text = activeService.fetchSomeData()
         println(activeService)
         println(activeService1)
+
+        appDb.storeToAppDb()
+        appService.showAppService()
+        println(appDb)
+        println(appDb1)
     }
 }

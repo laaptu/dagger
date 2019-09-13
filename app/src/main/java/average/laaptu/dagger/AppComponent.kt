@@ -1,9 +1,17 @@
 package average.laaptu.dagger
 
+import average.laaptu.dagger.simple.AppModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import javax.inject.Singleton
 
-@Component(modules = [AndroidInjectionModule::class, ActivityModules::class])
+
+@Singleton
+@Component(
+    modules = [AndroidInjectionModule::class,
+        AppModule::class,
+        ActivityModules::class]
+)
 interface AppComponent {
     fun injectApp(app: MainApplication)
 }

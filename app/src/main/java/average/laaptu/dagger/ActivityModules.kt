@@ -11,4 +11,8 @@ abstract class ActivityModules {
     @PerActivity
     @ContributesAndroidInjector(modules = [SimpleModule::class])
     abstract fun bindSimpleActivity(): SimpleActivity
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = [SimpleModule::class])
+    abstract fun bindMainActivity(): MainActivity
 }
