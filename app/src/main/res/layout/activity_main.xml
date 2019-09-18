@@ -17,6 +17,18 @@
             android:onClick="onClick"
             android:text="Go to SimpleActivity" />
 
+        <fragment
+            android:id="@+id/firstFragment"
+            android:name="average.laaptu.dagger.SimpleFragment"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
+        <fragment
+            android:id="@+id/secondFragment"
+            android:name="average.laaptu.dagger.SimpleFragment"
+            android:layout_width="match_parent"
+            android:layout_height="120dp" />
+
     </LinearLayout>
 
 </ScrollView>

@@ -9,6 +9,7 @@ import average.laaptu.dagger.simple.ActiveService
 import average.laaptu.dagger.simple.AppDb
 import average.laaptu.dagger.simple.SimpleActivity
 import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -16,6 +17,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        (firstFragment as SimpleFragment).printInjected("FirstFragment@Main")
+        (secondFragment as SimpleFragment).printInjected("SecondFragment@Main")
     }
 
     fun onClick(view: View) {

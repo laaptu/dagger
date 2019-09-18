@@ -1,10 +1,9 @@
 package average.laaptu.dagger
 
-import average.laaptu.dagger.simple.PerActivity
-import average.laaptu.dagger.simple.SimpleActivity
-import average.laaptu.dagger.simple.SimpleModule
+import average.laaptu.dagger.simple.*
 import dagger.Module
 import dagger.Subcomponent
+import dagger.android.AndroidInjectionModule
 import dagger.android.ContributesAndroidInjector
 
 @Module
@@ -21,5 +20,12 @@ abstract class ActivityModules {
     @PerActivity
     @ContributesAndroidInjector(modules = [SimpleModule::class])
     abstract fun bindMainActivity(): MainActivity
+}
+
+@Module
+abstract class FragmentModules {
+    @PerFragment
+    @ContributesAndroidInjector(modules = [ForFragmentModule::class])
+    abstract fun bindsSimpleFragment(): SimpleFragment
 }
 

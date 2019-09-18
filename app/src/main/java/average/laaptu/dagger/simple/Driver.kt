@@ -12,6 +12,12 @@ class ActiveService {
     }
 }
 
+class FragmentService {
+    fun showFragmentService() {
+        println("I am showing you the fragment service")
+    }
+}
+
 class AppService {
     fun showAppService() {
         println("You are using the Dagger app")
@@ -29,11 +35,23 @@ class AppDb {
 @Retention(AnnotationRetention.RUNTIME)
 annotation class PerActivity
 
+@Scope
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
+annotation class PerFragment
+
 @Module
 class SimpleModule {
     @PerActivity
     @Provides
     fun getActiveService(): ActiveService = ActiveService()
+}
+
+@Module
+class ForFragmentModule {
+    @PerFragment
+    @Provides
+    fun getFragmentService(): FragmentService = FragmentService()
 }
 
 @Module
